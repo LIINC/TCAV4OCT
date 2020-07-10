@@ -1,0 +1,23 @@
+Model files for this paper are located on IEEE DataPort.
+
+DOI: 10.21227/qg30-1p45
+
+URL: https://ieee-dataport.org/open-access/robust-and-interpretable-convolutional-neural-networks-detect-glaucoma-optical-coherence
+
+Dataset Title: ROBUST AND INTERPRETABLE CONVOLUTIONAL NEURAL NETWORKS TO DETECT GLAUCOMA IN OPTICAL COHERENCE TOMOGRAPHY IMAGES
+
+Citation Author(s):
+Kaveri Thakoor, Columbia University
+Sharath Koorathota, Columbia University
+Donald Hood, Columbia University
+Paul Sajda, Columbia University
+
+Submitted by: Kaveri Thakoor
+
+Last updated: Thu, 07/09/2020 - 19:12
+
+License: Creative Commons Attribution
+
+Instructions: Included are four .h5 files corresponding to the end-to-end deep learning OCT-fine-tuned Convolutional Neural Networks described in our paper. These models can be loaded using Keras and applied to detect glaucoma in OCT images (retinal nerve fiber layer probability maps). Also included are the .h5, .pb, and .txt files corresponding to the InceptionV3 + FC model and OCT-concept labels used for interpretability analysis via TCAVs as described in our paper. This model can be used via the wrapper class implemented on our forked TCAV repository included in the ‘Run TCAV’ jupyter notebooks located in our GitHub repository: http://github.com/LIINC/TCAV4OCT under src/TCAVRandomConcepts10 and under src/TCAVRandomConcepts160.
+
+
