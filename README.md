@@ -15,10 +15,10 @@ models:
 Info for accessing saved models available on IEEE DataPort
 
 results:
-Results file for 160 random concept TCAV experiment
+Results file for 160 random concepts TCAV experiment
 
 doc:
-Info on 150 ImageNet concepts used for TCAV experiment, additional OCT concepts and hand-selected random images under src/TCAVRandomConcepts10
+Info on 150 ImageNet concepts used for TCAV experiment, additional OCT concepts and hand-selected random concepts under src/TCAVRandomConcepts10
 
 
 References (and more in paper under review):
