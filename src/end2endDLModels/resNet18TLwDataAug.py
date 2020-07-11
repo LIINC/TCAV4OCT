@@ -21,7 +21,7 @@ epochs = 50
 #nb_valid_samples = 145
 nb_test_samples = 135
 
-#Keras ImageDataGenerator for loading train, val, and test data
+#Keras ImageDataGenerator for loading train, val, and test data and for Data Augmentation
 from keras.preprocessing.image import ImageDataGenerator
 
 #train_datagen = ImageDataGenerator(rescale=1./255)             
@@ -55,29 +55,6 @@ validation_generator = train_datagen.flow_from_directory(
     #save_to_dir='/gdrive/My Drive/augmentedInceptionVal/',
     subset='validation') # set as validation data
 
-# model.fit_generator(
-#     train_generator,
-#     steps_per_epoch = train_generator.samples // batch_size,
-#     validation_data = validation_generator, 
-#     validation_steps = validation_generator.samples // batch_size,
-#     epochs = nb_epochs)
-
-# train_generator = train_datagen.flow_from_directory(
-#     train_dir, 
-#     target_size=(img_height, img_width),
-#     color_mode="rgb",
-#     batch_size=batch_size,
-#     class_mode='binary',
-#     shuffle=True)   
-
-# valid_generator = valid_datagen.flow_from_directory(
-#     val_dir,
-#     target_size=(img_height, img_width),
-#     color_mode="rgb",
-#     batch_size=batch_size,
-#     class_mode='binary',
-#     shuffle=True) #weight toward one class or another
-
 test_generator = test_datagen.flow_from_directory(
     test_dir,
     target_size=(img_height, img_width),
@@ -92,7 +69,7 @@ print(label_map)
 filenames = test_generator.filenames 
 print(filenames)
 
-"""# Building the Model Architecture (Pre-trained ResNet-18 Extracting Features from OCT Dataset) & Training the Model"""
+"""# Building the Convolutional Base: Pre-trained ResNet-18 """
 
 from keras.utils import to_categorical
 from keras.models import Model, Input
@@ -132,24 +109,8 @@ from keras import layers
 
 model = models.Sequential()
 model.add(conv_base)
-# model.add(layers.Flatten())
-# model.add(layers.Dense(256, activation='relu'))
-# model.add(layers.Dense(1, activation='sigmoid'))
-# model.add(Conv2D(32,(11, 11), input_shape=input_shape))#, kernel_regularizer=regularizers.l1(0.01))) 
-# model.add(Activation('relu'))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
-# model.add(BatchNormalization())
 
-# model.add(Conv2D(32,(3, 3), input_shape=input_shape))#, kernel_regularizer=regularizers.l1(0.01))) 
-# model.add(Activation('relu'))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
-# model.add(BatchNormalization())
-
-# model.add(Conv2D(32,(3, 3), input_shape=input_shape))#, kernel_regularizer=regularizers.l1(0.01))) 
-# model.add(Activation('relu'))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
-# model.add(BatchNormalization())
-
+#Transfer Layers (Fine-Tuning the Model on OCT Data)
 model.add(layers.Flatten())
 model.add(layers.Dense(1024, activation='relu'))
 model.add(layers.Dropout(0.5))
@@ -161,7 +122,7 @@ model.compile(loss='binary_crossentropy',
               optimizer=optimizers.RMSprop(lr=2e-5),
               metrics=['acc'])
 
-
+#Training
 history = model.fit_generator(
       train_generator,
       steps_per_epoch=100,
@@ -182,6 +143,7 @@ filenames = test_generator.filenames
 print(filenames)
 nb_samples = len(filenames)
 
+#Getting Accuracy and Saving the Model!
 percentCorrect = model.evaluate_generator(test_generator, steps = np.ceil(nb_samples / batch_size))
 print(percentCorrect)
 
