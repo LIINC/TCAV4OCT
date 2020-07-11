@@ -3,7 +3,7 @@
 # Directory Paths
 #train_dir = "/gdrive/My Drive/newCircleData/Train/"
 #val_dir = "/gdrive/My Drive/newCircleData/Val/"
-test_dir = "/hdd/kavi/test/newCircleData/Test/" #"/gdrive/My Drive/mapsRedCap_DCH/fullReports/" 
+test_dir = "/hdd/kavi/test/mapsRedCap_DCH/fullReports/" #"/gdrive/My Drive/mapsRedCap_DCH/fullReports/" 
 train_data_dir = "/hdd/kavi/test/newCircleData/TrainValTest/"
 
 import numpy as np 
@@ -21,7 +21,7 @@ epochs = 50
 #nb_valid_samples = 145
 nb_test_samples = 135
 
-#Keras ImageDataGenerator for loading train, val, and test data
+#Keras ImageDataGenerator for loading train, val, and test data and for Data Augmentation
 from keras.preprocessing.image import ImageDataGenerator
 
 #train_datagen = ImageDataGenerator(rescale=1./255)             
@@ -98,6 +98,7 @@ from keras import layers
 model = models.Sequential()
 model.add(conv_base)
 
+#Transfer Layers
 model.add(layers.Flatten())
 model.add(layers.Dense(128, activation='relu'))
 model.add(layers.Dropout(0.5))
@@ -113,6 +114,7 @@ model.compile(loss='binary_crossentropy',
 
 #callbacks_list = [EarlyStopping(monitor='val_acc', patience=8, verbose=1)]
 
+#Model Training
 history = model.fit_generator(
       train_generator,
       steps_per_epoch=100,
@@ -134,6 +136,7 @@ filenames = test_generator.filenames
 print(filenames)
 nb_samples = len(filenames)
 
+#Getting Accuracy and Saving the Model!
 percentCorrect = model.evaluate_generator(test_generator, steps = np.ceil(nb_samples / batch_size))
 print(percentCorrect)
 
