@@ -18,7 +18,7 @@ results:
 Results file for 160 random concepts TCAV experiment
 
 doc:
-Info on 150 ImageNet concepts used for TCAV experiment, additional OCT concepts and hand-selected random concepts under src/TCAVRandomConcepts10
+Info on 150 ImageNet concepts used for TCAV experiment, additional OCT concepts and hand-selected random concepts listed in scripts under src/TCAVRandomConcepts10
 
 
 References (and more in paper under review):
@@ -26,3 +26,4 @@ References (and more in paper under review):
 1. F. Chollet, Deep Learning with Python. Manning Publications, 2018.
 2. B. Kim, M. Wattenberg, J. Gilmer, C. Cai, J. Wexler, F. Viegas, and R. Sayres. "Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (TCAV)", International Conference on Machine Learning, 2017.
 3. E.S. Dalmaijer, S. Mathôt, and S. Van der Stigchel, "PyGaze: An open-source, cross-platform toolbox for minimal-effort programming of eyetracking experiments." Behavior research methods, 46(4), pp.913-921, 2014.
+4. J. Deng, W. Dong, R. Socher, L. Li, K. Li, F. Li. "Imagenet: A large-scale hierarchical image database." IEEE Conference on Computer Vision and Pattern Recognition, pp. 248-255, 2009.
