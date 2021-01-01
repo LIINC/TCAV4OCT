@@ -1,7 +1,7 @@
 # TCAV4OCT
 Robust and Interpretable CNNs for Glaucoma Detection from OCT Images
 
-Code and Scripts for robust end-to-end deep learning models and interpretabilty analysis using Testing with Concept Activation Vectors (TCAVs, Been Kim, et al.) and corroboration with expert eye tracking, as described in paper: "Robust and Interpretable Convolutional Neural Networks to Detect Glaucoma in Optical Coherence Tomography Images."
+Code and Scripts for robust end-to-end deep learning models and interpretabilty analysis using Testing with Concept Activation Vectors (TCAVs, Been Kim, et al.) and corroboration with expert eye tracking, as described in paper: "Robust and Interpretable Convolutional Neural Networks to Detect Glaucoma in Optical Coherence Tomography Images" published in IEEE Transactions on Biomedical Engineering: https://ieeexplore.ieee.org/document/9286420.
 
 by Kaveri A. Thakoor, Sharath Koorathota, Donald C. Hood, and Paul Sajda
 
@@ -21,7 +21,7 @@ doc:
 Info on 150 ImageNet concepts used for TCAV experiment, additional OCT concepts and hand-selected random concepts listed in scripts under src/TCAVRandomConcepts10
 
 
-References (and more in paper under review):
+References (and more in paper described above):
 
 1. F. Chollet, Deep Learning with Python. Manning Publications, 2018.
 2. B. Kim, M. Wattenberg, J. Gilmer, C. Cai, J. Wexler, F. Viegas, and R. Sayres. "Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (TCAV)", International Conference on Machine Learning, 2017.
